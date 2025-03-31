@@ -1,0 +1,44 @@
+---
+import Cards from "../components/Card.astro";
+
+const projects = [
+  {
+    id: 1,
+    title: "Dragon Ball Z",
+    href: "Link de GitHub",
+
+    img: "/pro1.png",
+  },
+  {
+    id: 1,
+    title: "Dragon Ball Z",
+    href: "Link de GitHub",
+
+    img: "/pro2.png",
+  },
+  {
+    id: 1,
+    title: "Dragon Ball Z",
+    href: "Link de GitHub",
+
+    img: "/pro2.png",
+  },
+];
+---
+
+<section id="proyectos" class="bg-[#101112] pb-10">
+  <h1 class="text-center text-white text-5xl p-4 font-bold">Mis proyectos</h1>
+
+  <div class="grid grid-cols-2 gap-5 mx-10">
+    {
+      projects.map((project) => (
+        <Cards
+          title={project.title}
+          href={project.href}
+          img={project.img}
+          technologies={["react", "js"]}
+        />
+      ))
+    }
+  </div>
+</section>

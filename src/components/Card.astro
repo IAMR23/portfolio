@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string;
+  href: string;
+  img: string;
+  technologies: string[];
+}
+
+const { title, href, img, technologies } = Astro.props;
+---
+
+<div
+  class="relative rounded-lg border border-black bg-[#231E3E] text-white hover:scale-105 overflow-hidden"
+>
+  <a href={href} class="block">
+    <img
+      src="https://www.zdapps.com.mx/wp-content/uploads/2024/09/odoo.svg"
+      alt={title}
+      class="w-full h-[250px] object-cover border rounded-lg"
+    />
+
+    <!-- Overlay -->
+    <div
+      class="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-80 opacity-0 hover:opacity-100 transition-opacity duration-300"
+    >
+      <h3 class="text-lg font-bold">{title}</h3>
+      <ul class="text-sm flex gap-2 flex-wrap justify-center">
+        {
+          technologies.map((tech) => (
+            <li class="bg-gray-700 px-2 py-1 rounded-md text-xs">{tech}</li>
+          ))
+        }
+      </ul>
+    </div>
+  </a>
+</div>

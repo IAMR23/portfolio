@@ -1,0 +1,77 @@
+---
+// WhatsAppButton.astro
+const phoneNumber = "593978941377";
+const message = "Hola, me gustaría obtener más información.";
+
+// Codifica el mensaje para que sea válido en una URL
+const encodedMessage = encodeURIComponent(message);
+const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+---
+
+<div
+  id="social-buttons"
+  class="fixed top-1/2 right-0 transform -translate-y-1/2 bg-gray-600 bg-opacity-50 p-2 rounded-lg shadow-lg flex justify-center items-center text-center flex-col gap-2 transition-opacity duration-300"
+>
+  <a
+    href="https://www.linkedin.com/in/ismael-simba%C3%B1a-dev/"
+    target="_blank"
+    title="LinkedIn"
+    class="block text-white transition-transform transform hover:scale-110 hover:text-orange-500"
+  >
+    <img src="./linkdn.webp" width="32px" alt="LinkedIn" />
+  </a>
+
+  <a
+    href="https://github.com/IAMR23"
+    target="_blank"
+    title="GitHub"
+    class="block text-white transition-transform transform hover:scale-110 hover:text-orange-500"
+  >
+    <img src="./github.webp" width="32px" alt="GitHub" />
+  </a>
+  <a
+    href={whatsappLink}
+    target="_blank"
+    title="WhatsApp"
+    class="block text-white transition-transform transform hover:scale-110 hover:text-orange-500"
+  >
+    <img
+      width="32px"
+      src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+      alt="WhatsApp Icon"
+    />
+  </a>
+</div>
+
+<script>
+  // Usando client:load para asegurar que el script se ejecute después de que el DOM esté cargado
+  const handleScroll = () => {
+    const socialButtons = document.querySelector("#social-buttons");
+
+    if (!socialButtons) return; // Verificar que el elemento existe
+
+    if (window.scrollY > 100) {
+      // Cuando el usuario hace scroll más allá de 100px, reduce la opacidad
+      socialButtons.classList.add("opacity-25");
+      socialButtons.classList.remove("opacity-100");
+    } else {
+      // Cuando el usuario está en la parte superior, restablece la opacidad
+      socialButtons.classList.add("opacity-100");
+      socialButtons.classList.remove("opacity-25");
+    }
+  };
+
+  // Agregar el listener para el evento scroll
+  window.addEventListener("scroll", handleScroll);
+
+  // Opcional: restaurar la opacidad al pasar el mouse
+  document.addEventListener("DOMContentLoaded", () => {
+    const socialButtons = document.querySelector("#social-buttons");
+    if (socialButtons) {
+      socialButtons.addEventListener("mouseenter", () => {
+        socialButtons.classList.add("opacity-100");
+        socialButtons.classList.remove("opacity-25");
+      });
+    }
+  });
+</script>
