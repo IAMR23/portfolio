@@ -12,9 +12,9 @@ const { title, href, img, technologies } = Astro.props;
 <div
   class="relative rounded-lg border border-black bg-[#231E3E] text-white hover:scale-105 overflow-hidden"
 >
-  <a href={href} class="block">
+  <a href={href} class="block" target="_blank">
     <img
-      src="https://www.zdapps.com.mx/wp-content/uploads/2024/09/odoo.svg"
+      src={img}
       alt={title}
       class="w-full h-[250px] object-cover border rounded-lg"
     />

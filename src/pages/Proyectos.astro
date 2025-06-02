@@ -4,34 +4,35 @@ import Cards from "../components/Card.astro";
 const projects = [
   {
     id: 1,
-    title: "Dragon Ball Z 1",
-    href: "Link de GitHub",
-    img: "/pro1.png",
-    technologies: ["html", "css"],
+    title: "Invitaciones Digitales",
+    href: "https://soydev0123.netlify.app/",
+    img: "/invitacion.png",
+    technologies: ["astro", "tailwind", "Html", "CSS", "Js"],
   },
   {
     id: 2,
     title: "Dragon Ball Z 2",
-    href: "Link de GitHub",
-    img: "/pro2.png",
-    technologies: ["vue", "ts"],
+    href: "https://github.com/IAMR23/AppEducacionContinuaESPE/tree/main",
+    img: "/espe.png",
+    technologies: ["Taiwind", "Firebase", "NextJS"],
   },
   {
     id: 3,
     title: "Dragon Ball Z 3",
-    href: "Link de GitHub",
-    img: "/pro2.png",
-    technologies: ["react", "js"],
+    href: "https://integradent.netlify.app/",
+    img: "/integradent.png",
+    technologies: ["Astro", "Html", "Css", "Js"],
   },
 ];
 ---
 
 <section id="proyectos" class="bg-[#101112]">
-  <h1 class="text-blue-700 text-xl font-bold px-15 py-5 subtitle">
-    Mis proyectos
-  </h1>
+  <div class="px-15 py-5">
+    <h1 class="text-blue-700 text-xl font-bold subtitle">Mis proyectos</h1>
+    <div class="w-[60px] bg-blue-600 h-[3px]"></div>
+  </div>
 
-  <div class="grid grid-cols-2 gap-5 mx-10">
+  <div class="px-15 pb-10 grid grid-cols-2 gap-5">
     {
       projects.map((project) => (
         <Cards
